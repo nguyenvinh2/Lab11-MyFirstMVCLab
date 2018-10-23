@@ -27,7 +27,7 @@ namespace MyFirstMVCApp
       }
 
       app.UseStaticFiles();
-
+      //redirects to home set by controller
       app.UseMvc(routes =>
       {
         routes.MapRoute(

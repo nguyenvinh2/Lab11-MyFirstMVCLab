@@ -8,6 +8,10 @@ namespace MyFirstMVCApp.Models
 {
   public class Person
   {
+    /// <summary>
+    /// creates Person object with required properties
+    /// set by CSV
+    /// </summary>
     public int Year { get; set; }
     public string Honor { get; set; }
     public string Name { get; set; }
@@ -18,6 +22,11 @@ namespace MyFirstMVCApp.Models
     public string Category { get; set; }
     public string Context { get; set; }
 
+    /// <summary>
+    /// takes values from the CSV file and puts in it an object
+    /// </summary>
+    /// <param name="CSVLine">each CSV Line read by streamreader</param>
+    /// <returns>Person Object</returns>
     public static Person CSVConvert(string CSVLine)
     {
       string[] line = CSVLine.Split(',');
@@ -33,6 +42,10 @@ namespace MyFirstMVCApp.Models
       CreatePerson.Context = (string)line[8];
       return CreatePerson;
     }
+    /// <summary>
+    /// reads the CSV files, converts it into object and adds it to a list
+    /// </summary>
+    /// <returns>List of time persons</returns>
     public static List<Person> CSVPeople()
     {
       List<Person> TimePerson = File.ReadAllLines("Resources/personOfTheYear.csv")
