@@ -13,6 +13,8 @@ namespace MyFirstMVCApp.Controllers
     [HttpPost]
     public IActionResult Index(int beginningYear, int endingYear)
     {
+      Console.WriteLine(beginningYear);
+      Console.WriteLine(endingYear);
       return RedirectToAction("Result", new { beginningYear, endingYear });
     }
 
