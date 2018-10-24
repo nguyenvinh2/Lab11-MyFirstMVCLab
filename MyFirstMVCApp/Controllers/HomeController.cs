@@ -43,7 +43,7 @@ namespace MyFirstMVCApp.Controllers
     {
       List<Person> TimeofYearPerson = Person.CSVPeople();
       var SelectedPerson = (from result in TimeofYearPerson
-                            where result.Year > beginningYear && result.Year < endingYear
+                            where result.Year >= beginningYear && result.Year <= endingYear
                             select result).ToList<Person>();
 
       return View(SelectedPerson);
